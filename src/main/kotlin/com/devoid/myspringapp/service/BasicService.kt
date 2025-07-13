@@ -6,6 +6,6 @@ import org.springframework.stereotype.Service
 class BasicService {
     
     fun handleHi(): String {
-        return "Hello"
+        return "Hello v2"
     }
 } 
