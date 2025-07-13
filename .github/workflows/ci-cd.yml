@@ -50,4 +50,10 @@ jobs:
         run: |
           ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no \
             ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} \
-            'cd ~/apps/my-spring-app && docker-compose pull && docker-compose up -d'
+            "mkdir -p ~/apps/my-spring-app && \
+            cd ~/apps/my-spring-app && \
+            curl -sL https://raw.githubusercontent.com/${{ github.repository }}/main/docker-compose.yml \
+              -o docker-compose.yml && \
+            docker-compose pull && \
+            docker-compose up -d"
+
